@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.audio-container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* semi-transparent background */
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 215px;
+}
+
+#mute-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 10px;
+    color: #000; /* Change this to match your desired icon color */
+}
+
+#volume-slider {
+    flex-grow: 0.1;
+}
+
+#audio-player {
+    display: none;
+}
+
+/* Adapt the layout for small screens */
+@media (max-width: 100px) {
+    .audio-container {
+        padding: 5px;
+        border-radius: 0;
+    }
+
+    #mute-button {
+        font-size: 20px;
+    }
+
+    #volume-slider {
+        margin-left: 5px;
+    }
+}
+
+
+.carousel-container {
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel {
+    display: flex;
+    width: 300%; /* 100% for each of the 3 images */
+    position: relative;
+}
+
+.carousel a {
+    flex: 0 0 33.3333%; /* Show 3 images at a time */
+    max-width: 33.3333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    transition: transform 1s ease-in;
+    animation: fade 3s linear infinite; /* Added here */
+}
+
+.carousel img {
+    width: 80%;
+    height: auto;
+    transition: transform 1s ease-in;
+}
+
+.carousel a.active img {
+    transform: scale(1.2); /* Enlarge the middle image */
+}
+
+
+/* Adapt the layout for small screens */
+@media (max-width: 600px) {
+    .audio-container {
+        padding: 5px;
+        border-radius: 0;
+    }
+
+    #mute-button {
+        font-size: 20px;
+    }
+
+    #volume-slider {
+        margin-left: 5px;
+    }
+
+    .carousel a {
+        flex: 0 0 33.3333%; /* Show 3 images at a time on small screens */
+        max-width: 33.3333%;
+    }
+
+    .carousel {
+        width: 900%; /* Adjusted to show 3 images at a time */
+    }
+}
